@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nagaraj Furniture - Products</title>
+<link rel="stylesheet" href="style.css" />
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<script src="script.js" defer></script>
+</head>
+<body>
+<header>
+<nav class="navbar">
+<h1 class="logo"><i class="fas fa-couch"></i> Nagaraj Furniture</h1>
+<ul>
+<li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="products.html" class="active"><i class="fas fa-th-large"></i> Products</a></li>
+<li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+<li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+<li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+<li><a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="product-section">
+<h2>Our Products</h2>
+<div class="product-container" id="productList">
+
+<!-- Product 1 -->
+<div class="product-card">
+    <img src="images/royal_sofa.jpg" alt="Royal Sofa" />
+    <h3>Royal Sofa</h3>
+    <p>₹25,999</p>
+    <button onclick="addToCart('Royal Sofa', 25999)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    <button onclick="addToWishlist('Royal Sofa', 25999)"><i class="fas fa-heart"></i> Wishlist</button>
+</div>
+
+<!-- Product 2 -->
+<div class="product-card">
+    <img src="images/wooden_chair.jpg" alt="Wooden Chair" />
+    <h3>Wooden Chair</h3>
+    <p>₹2,499</p>
+    <button onclick="addToCart('Wooden Chair', 2499)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    <button onclick="addToWishlist('Wooden Chair', 2499)"><i class="fas fa-heart"></i> Wishlist</button>
+</div>
+
+<!-- Product 3 -->
+<div class="product-card">
+    <img src="images/dining_table.jpg" alt="Dining Table" />
+    <h3>Dining Table</h3>
+    <p>₹18,999</p>
+    <button onclick="addToCart('Dining Table', 18999)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    <button onclick="addToWishlist('Dining Table', 18999)"><i class="fas fa-heart"></i> Wishlist</button>
+</div>
+
+<!-- Product 4 -->
+<div class="product-card">
+    <img src="images/office_table.jpg" alt="Office Table" />
+    <h3>Office Table</h3>
+    <p>₹14,499</p>
+    <button onclick="addToCart('Office Table', 14499)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    <button onclick="addToWishlist('Office Table', 14499)"><i class="fas fa-heart"></i> Wishlist</button>
+</div>
+
+<!-- Product 5 -->
+<div class="product-card">
+    <img src="images/bed.jpg" alt="King Size Bed" />
+    <h3>King Size Bed</h3>
+    <p>₹29,999</p>
+    <button onclick="addToCart('King Size Bed', 29999)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    <button onclick="addToWishlist('King Size Bed', 29999)"><i class="fas fa-heart"></i> Wishlist</button>
+</div>
+
+<!-- Product 6 -->
+<div class="product-card">
+    <img src="images/wardrobe.jpg" alt="Wooden Wardrobe" />
+    <h3>Wooden Wardrobe</h3>
+    <p>₹15,999</p>
+    <button onclick="addToCart('Wooden Wardrobe', 15999)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    <button onclick="addToWishlist('Wooden Wardrobe', 15999)"><i class="fas fa-heart"></i> Wishlist</button>
+</div>
+
+<!-- Product 7 -->
+<div class="product-card">
+    <img src="images/tv_unit.jpg" alt="TV Unit" />
+    <h3>TV Unit</h3>
+    <p>₹8,499</p>
+    <button onclick="addToCart('TV Unit', 8499)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    <button onclick="addToWishlist('TV Unit', 8499)"><i class="fas fa-heart"></i> Wishlist</button>
+</div>
+
+<!-- Product 8 -->
+<div class="product-card">
+    <img src="images/bookshelf.jpg" alt="Bookshelf" />
+    <h3>Bookshelf</h3>
+    <p>₹4,999</p>
+    <button onclick="addToCart('Bookshelf', 4999)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    <button onclick="addToWishlist('Bookshelf', 4999)"><i class="fas fa-heart"></i> Wishlist</button>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>&copy; 2025 Nagaraj Furniture. All rights reserved.</p>
+</footer>
+</body>
+</html>

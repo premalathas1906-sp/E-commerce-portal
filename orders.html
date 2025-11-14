@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nagaraj Furniture - Orders</title>
+<link rel="stylesheet" href="style.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<script src="script.js" defer></script>
+</head>
+<body>
+<header>
+<nav class="navbar">
+<h1 class="logo"><i class="fas fa-couch"></i> Nagaraj Furniture</h1>
+<ul>
+<li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="products.html"><i class="fas fa-th-large"></i> Products</a></li>
+<li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+<li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+<li><a href="orders.html" class="active"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+<li><a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="orders-section">
+<h2>Your Cart</h2>
+<div class="orders-container" id="cartList">
+    <!-- Cart items will be populated by JavaScript -->
+</div>
+<p id="emptyCart"></p>
+</section>
+
+<footer>
+<p>&copy; 2025 Nagaraj Furniture. All rights reserved.</p>
+</footer>
+
+<script>
+function displayCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartList = document.getElementById('cartList');
+    const emptyCartMsg = document.getElementById('emptyCart');
+    cartList.innerHTML = '';
+
+    if(cart.length === 0){
+        emptyCartMsg.innerText = 'Your cart is empty.';
+        return;
+    }
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price;
+        const card = document.createElement('div');
+        card.classList.add('product-card');
+        card.innerHTML = `
+            <h3>${item.name}</h3>
+            <p>₹${item.price}</p>
+            <button onclick="removeFromCart(${index})"><i class="fas fa-trash"></i> Remove</button>
+        `;
+        cartList.appendChild(card);
+    });
+
+    const totalElem = document.createElement('p');
+    totalElem.innerHTML = `<strong>Total: ₹${total}</strong>`;
+    cartList.appendChild(totalElem);
+}
+
+function removeFromCart(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index,1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+}
+
+document.addEventListener('DOMContentLoaded', displayCart);
+</script>
+</body>
+</html>

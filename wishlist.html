@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nagaraj Furniture - Wishlist</title>
+<link rel="stylesheet" href="style.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<script src="script.js" defer></script>
+</head>
+<body>
+<header>
+<nav class="navbar">
+<h1 class="logo"><i class="fas fa-couch"></i> Nagaraj Furniture</h1>
+<ul>
+<li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="products.html"><i class="fas fa-th-large"></i> Products</a></li>
+<li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+<li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+<li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+<li><a href="wishlist.html" class="active"><i class="fas fa-heart"></i> Wishlist</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="wishlist-section">
+<h2>Your Wishlist</h2>
+<div class="wishlist-container" id="wishlistList">
+    <!-- Wishlist items populated by JS -->
+</div>
+<p id="emptyWishlist"></p>
+</section>
+
+<footer>
+<p>&copy; 2025 Nagaraj Furniture. All rights reserved.</p>
+</footer>
+
+<script>
+function displayWishlist() {
+    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    const wishlistList = document.getElementById('wishlistList');
+    const emptyWishlistMsg = document.getElementById('emptyWishlist');
+    wishlistList.innerHTML = '';
+
+    if(wishlist.length === 0){
+        emptyWishlistMsg.innerText = 'Your wishlist is empty.';
+        return;
+    }
+
+    wishlist.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.classList.add('product-card');
+        card.innerHTML = `
+            <h3>${item.name}</h3>
+            <p>₹${item.price}</p>
+            <button onclick="removeFromWishlist(${index})"><i class="fas fa-trash"></i> Remove</button>
+        `;
+        wishlistList.appendChild(card);
+    });
+}
+
+function removeFromWishlist(index) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    wishlist.splice(index,1);
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    displayWishlist();
+}
+
+document.addEventListener('DOMContentLoaded', displayWishlist);
+</script>
+</body>
+</html>
